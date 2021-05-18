@@ -36,16 +36,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     //showError("login_err", "Ваш пароль успешно сброшен<br>В ближайшее время к Вам прийдет письмо на указанный адрес", user);
                     document.getElementById("login_err").style.display = "block";
                     document.getElementById("login_err").style.color = "#2dba55";
-                    document.getElementById("login_err").innerHTML = "Ваш пароль успешно сброшен<br>В ближайшее время к Вам прийдет письмо на указанный адрес";
+                    document.getElementById("login_err").innerHTML = "Пароль сброшен. Проверьте Вашу почту.";
                     setTimeout(() => {
                         document.location.href = "./";
                     }, 3000);
                     break;
                 case -101:
-                    showError("Ошибочное имя пользователя или email", "<p>Пользователь с указанным именем и адресом email не найден.</p>", user);
+                    showError("login_err", "Пользователь с указанным именем не найден.", user);
                     break;
                 case -102:
-                    showError("Ошибочное имя пользователя или email", "<p>Пользователь с указанным именем и адресом email не прошел регистрацию.</p>", user);
+                    showError("login_err", "Пользователь с указанным именем не прошел регистрацию.", user);
                     break;
                 default:
                     break;
