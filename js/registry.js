@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    maskPhone("#phone", "8 (___) ___-__-__");
+    maskPhone("#phone", "+7 (___) ___-__-__");
 
     let tsgCode = getCookie("tsg");
     document.querySelector('input[name="tsgcode"]').value = tsgCode;
