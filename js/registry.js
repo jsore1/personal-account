@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const checkBoxFio = document.getElementById("is_equal_fio");
     const inputFio = document.getElementById("fio_applicant");
     const checkBoxTerms = document.getElementById("terms");
     const buttonApplication = document.getElementById("application");
@@ -38,24 +37,16 @@ document.addEventListener("DOMContentLoaded", () => {
     addEvent(inputPhone, phoneAttention, phoneWindow);
     addEvent(inputSquare, squareAttention, squareWindow);
 
-    checkBoxFio.addEventListener("click", () => {
-        checkInput(checkBoxFio, inputFio);
-    });
-
     checkBoxTerms.addEventListener("click", () => {
         checkButton(checkBoxTerms, buttonApplication);
     });
 
     fioField.addEventListener("keyup", () => {
-        if (checkBoxFio.checked === true) {
-            inputFio.value = fioField.value;
-        }
+        inputFio.value = fioField.value;
     });
 
     fioField.addEventListener("input", () => {
-        if (checkBoxFio.checked === true) {
-            inputFio.value = fioField.value;
-        }
+        inputFio.value = fioField.value;
     });
 
     function checkInput(checkbox, input) {
@@ -103,7 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
         inputPhone.disabled = false;
         inputSquare.disabled = false;
         fioField.disabled = false;
-        checkBoxFio.disabled = false;
         checkBoxTerms.disabled = false;
         document.querySelector('input[name="tsgcode"]').value = tsgCode;      
     });
@@ -118,7 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
         inputSquare.disabled = true;
         inputFio.disabled = true;
         fioField.disabled = true;
-        checkBoxFio.disabled = true;
         checkBoxTerms.disabled = true;
     }
 
