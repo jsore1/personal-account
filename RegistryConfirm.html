@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Личный кабинет. Заявка на регистрацию</title>
+	<link rel="stylesheet" href="https://unpkg.com/flexboxgrid2@7.2.1/flexboxgrid2.css">
+	<link rel="stylesheet" href="css/style.min.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+	<header class="header">
+        <div class="row center-xs middle-xs between-sm">
+            <div class="header__logo col-xs-12 col-sm-3 col-md-3 col-lg-2 col-xl-2">
+                <a href="./"><img src="images/gallery/f8wmasjj.jpg" alt="Логотип"></a>
+            </div>
+            <div class="header__title col-xs-6 col-sm-7 col-md-8 col-lg-9 col-xl-9">
+                <a href="./"><h1>Товарищество собственников жилья «Фортис»</h1></a>
+            </div>
+        </div>
+    </header>
+    <nav class="menu">
+        <ul class="menu__main row start-xs">
+            <li class="menu__home col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"><a href="./" title="Главная страница">&nbsp;</a></li>
+        </ul>
+    </nav>
+    <div class="shadow">
+        <div class="shadow__right"></div>
+    </div>
+
+	<div class="login-form">
+		<div class="row center-xs">
+			<div class="col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11">
+				<h2 class="login-form__title">Заявка на регистрацию.<br>Подтверждение кода</h2>
+			</div>
+		</div>
+		<div class="row center-xs">
+			<div id="msg" class="login-form__message col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">Код подтверждения отправлен по SMS на номер </div>
+		</div>
+		<div class="row center-xs">
+			<input type="text" id="confirmCode" name="confirmcode" class="login-form__input col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11" required placeholder="Код">
+		</div>
+		<div class="row center-xs">
+			<input type="submit" class="login-form__button col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11" id="confirmRequest" value="Подтвердить код">
+		</div>
+		<div class="row center-xs">
+			<div class="login-form__link-text col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"><a href="#" id="repeatRequest">Отправить заново</a></div>
+		</div>
+		<div class="row center-xs">
+			<div class="login-form__error col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
+		</div>
+		<div class="row center-xs">
+			<div class="login-form__message-ok col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
+				<h4>Спасибо за регистрацию в Личном кабинете!</h4>
+			</div>
+			<div class="login-form__message-ok col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
+				<p>Ваша заявка принята к рассмотрению.</p>
+			</div>
+			<div class="login-form__message-ok col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
+				<p>Проверьте, пожалуйста, почту, Вам отправлено письмо с дополнительной информацией.</p>
+			</div>
+			<div class="login-form__message-ok col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
+				<p>Если Вы не получили письмо о регистрации в течение 10 минут,<br> проверьте папку для спама: возможно, письмо там.<br> В противном случае обратитесь в службу поддержки.</p>
+			</div>
+		</div>
+		<div class="row center-xs">
+			<div class="login-form__error col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">Неправильно указан телефон</div>
+		</div>
+		<div class="row center-xs">
+			<div class="login-form__error col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">В настоящее время заявка на регистрацию не может быть создана. Приносим извинения за неудобства, наши технические специалисты ведут работы над устранением проблемы. Попробуйте, пожалуйста, позже.</div>
+		</div>
+		<div class="row center-xs">
+			<input type="submit" class="login-form__button login-form__button_hide col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11" id="exitRequest" value="Выход">
+		</div>
+	</div>
+
+	<footer class="footer">
+        <div class="row center-xs">
+            <div class="col-xs-7 col-sm-10 col-md-9 col-lg-10 col-xl-11">
+                <p>Официальный сайт ТСЖ «Фортис».<br> Телефон: +79602574470.</p>
+            </div>
+        </div>
+    </footer>
+    <div class="shadow">
+        <div class="shadow__right"></div>
+    </div>
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			const exitButton = document.getElementById("exitRequest");
+			const msg = document.getElementById("msg");
+			const confirmRequest = document.getElementById("confirmRequest");
+			const repeatRequest = document.getElementById("repeatRequest");
+			const confirmCode = document.getElementById("confirmCode");
+			const msgErr = document.querySelector(".login-form__error");
+			const msgOks = document.querySelectorAll(".login-form__message-ok");
+
+			function showError(message) {
+				document.querySelector(".login-form__error").style.display = "block";
+				document.querySelector(".login-form__error").textContent = message;
+			}
+			
+			function getBaseURL() {
+				return location.protocol + "//" + location.hostname + (location.port && ":" + location.port) + "/";
+			}
+			exitButton.addEventListener("click", (event) => {
+				event.preventDefault();
+				document.location.href = "<?php echo $backurl?>";
+			});
+			setInterval(() => {
+				refreshcode = 1;
+			}, 60000);
+
+			let tries = 0;
+			let refreshcode = 1;
+			let lastRefresh = Math.floor(Date.now() / 1000);
+
+			if (2 == 1) {
+				msg.style.display = "none";
+				confirmRequest.style.display = "none";
+				repeatRequest.style.display = "none";
+				confirmCode.style.display = "none";
+				exitButton.style.display = "block";
+				showError("Заявка на регистрацию уже подана.");
+				exitButton.addEventListener("click", (event) => {
+					event.preventDefault();
+					document.location.href = "<?php echo $backurl?>";
+				});
+			}
+
+			confirmRequest.addEventListener("click", () => {
+				let formData = new FormData();
+				formData.append("method", "registry");
+				formData.append("tsgcode", "<?php echo $tsgcode?>");
+				formData.append("klc", "<?php echo $klc?>");
+				formData.append("fio", "<?php echo $fio?>");
+				formData.append("fioreq", "<?php echo $fioreq?>");
+				formData.append("email", "<?php echo $email?>");
+				formData.append("mobile", "<?php echo $mobile?>");
+				formData.append("square", "<?php echo $square?>");
+				formData.append("code", confirmCode.value);
+				let xhr = new XMLHttpRequest();
+				xhr.open("POST", "OfficeHelper.php");
+				xhr.send(formData);
+				xhr.onload = () => {
+					let resp = xhr.response.split("|");
+					let errCode = parseInt(resp[0]);
+					switch (errCode) {
+						case 0:
+							msg.style.display = "none";
+							msgErr.style.display = "none"
+							confirmRequest.style.display = "none";
+							repeatRequest.style.display = "none";
+							confirmCode.style.display = "none";
+							for (let msg of msgOks) {
+								msg.style.display = "block";
+							}
+							break;
+						case -101:
+							showError('Указанный лицевой счет не найден.');
+							break;
+						case -102:
+							showError('Указанный лицевой счет уже зарегистрирован.');
+							break;
+						case -103:
+							showError('Заявка на регистрацию уже подана.');
+							break;
+						case -200:
+							showError('Код подтверждения не верен.');
+							break;
+						default:
+							showError( 'Возникла неожиданная ошибка');
+							break;
+					}
+					if (errCode < 0) {
+						exitButton.addEventListener("click", (event) => {
+							event.preventDefault();
+							document.location.href = "<?php echo $backurl?>";
+						});
+					} else {
+						exitButton.addEventListener("click", (event) => {
+							event.preventDefault();
+							document.location.href = getBaseURL() + 'privoff';
+						});
+					}
+				}
+			});
+
+			repeatRequest.addEventListener("click", (event) => {
+				event.preventDefault();
+				if (refreshcode == 0) {
+					let nn = Math.floor(Date.now() / 1000);
+					let sec = 60 - (nn - lastRefresh);
+					showError("Повторный код можно будет отправить через " + sec + " секунд");
+					return;
+				}
+				lastrefresh = Math.floor(Date.now() / 1000);
+				let formData = new FormData();
+				formData.append("mobile", "<?php echo $mobile?>");
+				formData.append("userId", "<?php echo $res['UserId']?>");
+				let xhr = new XMLHttpRequest();
+				xhr.open("POST", "sendSms.php");
+				xhr.send(formData);
+				showError("Код отправлен повторно");
+				refreshcode = 0;
+			});
+
+		});
+	</script>
+</body>
+</html>
