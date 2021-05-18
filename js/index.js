@@ -9,8 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const remember = document.getElementById("remember");
     const passwordNew = document.getElementById("pwdn1");
     const passwordNew2 = document.getElementById("pwdn2");
-    const modalDialog = document.querySelector(".modal-dialog");
-    const modalDialogClose = document.querySelector(".modal-dialog__close");
 
     setCookie("token", null);
 
@@ -54,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (passwordNew.value.length < 6) {
                     //passwordNew.classList.add("login-form__input_error");
                     //passwordNew2.classList.add("login-form__input_error");
-                    showError("passn1_err", "Длина нового пароля должна быть больше или равна 6 символам", passwordNew);
+                    showError("passn2_err", "Длина нового пароля должна быть больше или равна 6 символам", passwordNew);
                     passwordNew.focus();
                     passwordNew.select();
                     return;
@@ -73,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (resp != "") {
                         login.classList.add("login-form__input_error");
                         //password.classList.add("login-form__input_error");
-                        showError("pass_err", "Неправильно введены логин и, или пароль", password);
+                        showError("pass_err", "Неверное имя пользователя или пароль", password);
                         return;
                     } else {
                         alert("Пароль сменен успешно.\nВведите имя пользователя и новый пароль");
@@ -110,8 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     passwordNew.select();
                     break;
                 case -100:
-                    login.classList.add("login-form__input_error");
-                    showError("login_err", "Проверьте введенные данные<br>Имя пользователя и пароль регистрозависимые", login);
+                    password.classList.add("login-form__input_error");
+                    showError("pass_err", "Неверное имя пользователя или пароль", login);
                     login.focus();
                     login.select();
                     break;
@@ -127,14 +125,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 case -1002:
                 case -1003:
                 case -1004:
-                    password.classList.add("login-form__input_error");
-                    showError("pass_err", "Возможно неправильно выбрана раскладка клавиатуры<br>или нажата клавиша &lt;Caps Lock&gt;Осталось " + (1004 + errCode) + " попыток(а)", password);
+                    login.classList.add("login-form__input_error");
+                    showError("pass_err", "Неверное имя пользователя или пароль", password);
                     password.focus();
                     password.select();
                     break;
                 case -2001:
-                    password.classList.add("login-form__input_error");
-                    showError("pass_err", "Извините, на сервере ведутся регламентные работы.<br>Сервер будет доступ в течении ближайшего времени", password);
+                    login.classList.add("login-form__input_error");
+                    showError("pass_err", "Извините, на сервере ведутся регламентные работы", password);
                     password.focus();
                     password.select();
                     break;
@@ -143,11 +141,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             btn.disabled = false;
         }
-    });
-
-    modalDialogClose.addEventListener("click", (event) => {
-        event.preventDefault();
-        modalDialog.style.display = "none";
     });
 
     function aClick(event) {
