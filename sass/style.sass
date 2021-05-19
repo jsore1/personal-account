@@ -1,4 +1,5 @@
 $primary-color: #2898ff
+$second-color: #2dba55
 body
     background-image:url("../images/gallery/qhktbnjc.png")
     font-family: Montserrat
@@ -221,6 +222,137 @@ body
         margin-top: 5px
         font-size: 14px
         color: #ff3838
+.personal-acc
+    position: relative
+    margin: 0 auto
+    max-width: 1120px
+    background-color: #ffffff
+    padding-bottom: 100px
+    &__title
+        margin-top: 18px
+        font-size: 26px
+        font-weight: 800
+        color: #242f51
+    &__exit
+        display: inline-block
+        margin-top: 30px
+        margin-right: 46px
+        font-size: 14px
+        font-weight: 700
+        text-decoration: underline
+        color: $primary-color
+    &__info-table
+        margin-top: 66px
+        margin-left: 43px
+        text-align: left
+        font-size: 14px
+        td:nth-child(1)
+            padding-right: 19px
+            font-weight: 500
+            color: #616368
+        td:nth-child(2)
+            font-weight: 600
+            color: #3e4044
+    &__button
+        margin-left: -83px
+        width: 183px
+        height: 53px
+        border-radius: 6px
+        font-size: 14px
+        line-height: 39px
+        font-weight: 700
+        color: #ffffff
+    &__button:nth-child(1)
+        margin-top: 66px
+    &__button:nth-child(2)
+        margin-top: 9px
+    &__button_green
+        background-color: $second-color
+    &__button_blue
+        background-color: $primary-color
+    &__tabs
+        margin-top: 58px
+        margin-left: 40px
+    &__tab
+        display: inline-block
+        padding: 25px 30px 18px 30px
+        font-size: 16px
+        font-weight: 500
+        color: #242f51
+        text-decoration: none
+        border: 2px solid #dce3ec
+        border-radius: 6px
+        margin-left: 8px
+    &__tab:first-child
+        margin-left: 0
+    &__tab_pressed
+        background-color: #e6f4fa
+        border-top: 3px solid $primary-color
+.tabs-content
+    margin-top: -5px
+    width: 1033px
+    border: 2px solid #dce3ec
+    border-radius: 6px
+    background-color: #e6f4fa
+    &__title
+        margin-top: 40px
+        font-size: 24.8px
+        font-weight: 700
+        color: #242f51
+    &__charges-table
+        box-shadow: 0px 13px 24px 0px rgba(168,176,192,0.2)
+        border: 2px solid #dce3ec
+        border-radius: 6px
+        margin-bottom: 41px
+        overflow-x: auto
+        overflow-y: hidden
+        table
+            width: 100%
+            border-collapse: collapse
+            background-color: #ffffff
+            tr:nth-child(2n+4)
+                background-color: #f5f7fa
+            tr:nth-child(2)
+                td
+                    font-size: 12px
+                    font-weight: 600
+                    color: #242f51
+            td
+                border: 1px solid #dce3ec
+                padding-top: 13px
+                padding-bottom: 8px
+            td:first-child
+                border-top: none
+                border-left: none
+                border-right: none
+            tr:first-child
+                td
+                    padding-top: 24px
+                    padding-bottom: 19px
+                    font-size: 14px
+                    font-weight: 700
+                    color: #242f51
+                    text-transform: uppercase
+            tr:last-child
+                background-color: #fcae61
+                td
+                    border-bottom: none
+                    border-right: none
+                    border-left: none
+                    font-size: 12px
+                    font-weight: 600
+                    color: #ffffff
+                    text-transform: uppercase
+            tr
+                td
+                    font-size: 12px
+                    font-weight: 400
+                    color: #616368
+                td:last-child
+                    border-right: none
+                td:nth-child(2)
+                    text-align: left
+                    padding-left: 20px
 .footer
     margin: 0 auto
     max-width: 1120px
@@ -249,4 +381,94 @@ body
         height: 80px
     .login-form__link-text
         font-size: 12px
-    
+@media screen and ( max-width: 1199px )
+    .personal-acc
+        &__button
+            margin-left: 0
+@media screen and ( max-width: 991px )
+    .personal-acc
+        &__tabs
+            margin-left: 35px
+        &__tab
+            padding: 25px 20px 18px 20px
+            font-size: 14px
+            font-weight: 500
+            color: #242f51
+            text-decoration: none
+            border: 2px solid #dce3ec
+            border-radius: 6px
+            margin-left: 8px
+        &__tab_pressed
+            background-color: #e6f4fa
+            border-top: 3px solid $primary-color
+@media screen and ( max-width: 767px )
+    .personal-acc
+        &__button:nth-child(1)
+            margin-top: 15px
+        &__tabs
+            margin-left: 25px
+        &__tab
+            padding: 25px 10px 18px 10px
+            font-size: 12px
+            font-weight: 500
+            color: #242f51
+            text-decoration: none
+            border: 2px solid #dce3ec
+            border-radius: 6px
+            margin-left: 8px
+        &__tab_pressed
+            background-color: #e6f4fa
+            border-top: 3px solid $primary-color
+@media screen and ( max-width: 575px )
+    .personal-acc
+        &__button:nth-child(1)
+            margin-top: 15px
+        &__tabs
+            margin-left: 17px
+        &__tab
+            padding: 15px 5px 18px 5px
+            font-size: 10px
+            font-weight: 500
+            color: #242f51
+            text-decoration: none
+            border: 2px solid #dce3ec
+            border-radius: 6px
+            margin-left: 0
+        &__tab_pressed
+            background-color: #e6f4fa
+            border-top: 3px solid $primary-color
+    .tabs-content
+        &__title
+            font-size: 20px
+@media screen and ( max-width: 376px )
+    .personal-acc
+        &__info-table
+            margin-top: 66px
+            margin-left: 0
+        &__button
+            margin-left: -15px
+        &__button:nth-child(1)
+            margin-top: 15px
+        &__tabs
+            margin-left: 10px
+        &__tab
+            padding: 15px 5px 18px 5px
+            font-size: 9px
+            font-weight: 500
+            color: #242f51
+            text-decoration: none
+            border: 2px solid #dce3ec
+            border-radius: 6px
+            margin-left: 0
+        &__tab_pressed
+            background-color: #e6f4fa
+            border-top: 3px solid $primary-color
+    .tabs-content
+        &__title
+            font-size: 16px
+        &__charges-table
+            table
+                tr
+                    td:nth-child(2)
+                        text-align: left
+                        padding-left: 5px

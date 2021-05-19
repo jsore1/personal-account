@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="https://unpkg.com/flexboxgrid2@7.2.1/flexboxgrid2.css">
     <link rel="stylesheet" href="css/style.min.css?dc=">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
 	<header class="header">
@@ -32,6 +34,120 @@
         <div class="shadow__right"></div>
     </div>
 
+    <div class="personal-acc">
+        <div class="row end-xs">
+            <div class="col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11">
+                <a class="personal-acc__exit" href="#">Выход</a>
+            </div>
+        </div>
+        <div class="row center-xs">
+            <div class="col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11">
+                <h2 class="personal-acc__title">Личный кабинет "Название ТСЖ"</h2>
+            </div>
+        </div>
+        <div class="row center-xs">
+            <div class="col-xs-10 col-sm-11 col-md-8 col-lg-9 col-xl-10">
+                <table class="personal-acc__info-table">
+                    <tr>
+                        <td>Номер лицевого счета:</td>
+                        <td>547</td>
+                    </tr>
+                    <tr>
+                        <td>Фамилия Имя Отчество собственника:</td>
+                        <td>Шкомов Павел Сергеевич</td>
+                    </tr>
+                    <tr>
+                        <td>Адрес помещения:</td>
+                        <td>Санкт-Петербург, Земледельческая ул., д.5, корпус 2, литера А, кв. 547</td>
+                    </tr>
+                    <tr>
+                        <td>Площадь помещения:</td>
+                        <td>93,20</td>
+                    </tr>
+                    <tr>
+                        <td>Текущий e-mail:</td>
+                        <td>chkomov@mail.ru</td>
+                    </tr>
+                    <tr>
+                        <td>Ваша текущая задолженность:</td>
+                        <td>0,0</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-xs-5 col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                <button class="personal-acc__button personal-acc__button_green">Оплатить</button>
+                <button class="personal-acc__button personal-acc__button_blue">Печать квитанции</button>
+            </div>
+        </div>
+        <div class="row start-xs">
+            <div class="personal-acc__tabs col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
+                <a class="personal-acc__tab personal-acc__tab_pressed" href="#charges">Начисления</a>
+                <a class="personal-acc__tab" href="#payments">История начислений</a>
+                <a class="personal-acc__tab" href="#profile">Профиль</a>
+                <a class="personal-acc__tab" href="#counters">Счетчики</a>
+            </div>
+        </div>
+        <div class="row center-xs">
+            <div class="tabs-content col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
+                <div id="charges">
+                    <div class="row center-xs">
+                        <h2 class="tabs-content__title col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">Начисления за "Месяц год"</h2>
+                    </div>
+                    <div class="row center-xs">
+                        <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
+                            <div class="tabs-content__charges-table">
+                                <table>
+                                    <tr>
+                                        <td colspan="8">Начисления по услугам</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Номер</td>
+                                        <td>Наименование услуги</td>
+                                        <td>Тариф</td>
+                                        <td>Норматив</td>
+                                        <td>Полная стоимость</td>
+                                        <td>Льгота</td>
+                                        <td>Перерасчет</td>
+                                        <td>К оплате</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Содерж.общего имущ.</td>
+                                        <td>11,56</td>
+                                        <td>92,30</td>
+                                        <td>1066,99</td>
+                                        <td>00,00</td>
+                                        <td>00,00</td>
+                                        <td>1066,99</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Обсл. лифта</td>
+                                        <td>11,56</td>
+                                        <td>92,30</td>
+                                        <td>1066,99</td>
+                                        <td>00,00</td>
+                                        <td>00,00</td>
+                                        <td>1066,99</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Итого</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>1066,99</td>
+                                        <td>00,00</td>
+                                        <td>00,00</td>
+                                        <td>1066,99</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="row center-xs">
