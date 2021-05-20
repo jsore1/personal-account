@@ -294,12 +294,16 @@ body
     border: 2px solid #dce3ec
     border-radius: 6px
     background-color: #e6f4fa
+    &__block
+        display: none
+    &__block:target
+        display: block
     &__title
         margin-top: 40px
         font-size: 24.8px
         font-weight: 700
         color: #242f51
-    &__charges-table
+    &__block-table
         box-shadow: 0px 13px 24px 0px rgba(168,176,192,0.2)
         border: 2px solid #dce3ec
         border-radius: 6px
@@ -466,9 +470,10 @@ body
     .tabs-content
         &__title
             font-size: 16px
-        &__charges-table
+        &__block-table
             table
                 tr
                     td:nth-child(2)
                         text-align: left
                         padding-left: 5px
+        
