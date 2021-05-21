@@ -358,6 +358,44 @@ body
         color: #ffffff
     &__profile-button_phone
         margin-top: 80px
+    &__counters-title
+        font-size: 14px
+        font-weight: 700
+        color: #242f51
+        text-transform: uppercase
+        margin: 0
+    &__counters-subtitle
+        font-size: 11.5px
+        font-weight: 400
+        color: #616368
+    &__counters-input
+        width: 129px
+        height: 19px
+        border: 1px solid #cccccc
+        border-radius: 4px
+        font-size: 11.5px
+        font-weight: 400
+        color: #616368
+    &__counters-link-save
+        font-size: 11.5px
+        font-weight: 500
+        color: #2898ff
+        text-decoration: none
+        a:visited
+            color: #2898ff
+    &__zero-margin
+        margin-left: 0px
+        margin-right: 0px
+    &__paragraph
+        font-size: 11.5px
+        font-weight: 400
+        color: #616368
+        margin-bottom: 32px
+        margin-top: 0
+    &__warn
+        font-size: 14px
+        font-weight: 700
+        color: #fcae61
     &__button
         border-radius: 6px
         font-size: 10.6px
@@ -459,7 +497,6 @@ body
     &__block-table-payments-charges
         box-shadow: 0px 13px 24px 0px rgba(168,176,192,0.2)
         border-radius: 6px
-        margin-left: 15px
         margin-top: 16px
         margin-bottom: 23px
         overflow-x: auto
@@ -501,6 +538,69 @@ body
                 td:nth-child(2)
                     text-align: left
                     padding-left: 20px
+    &__block-table-counters
+        background-color: #ffffff
+        box-shadow: 0px 13px 24px 0px rgba(168,176,192,0.2)
+        border-radius: 6px
+        margin-bottom: 26px
+        overflow-x: auto
+        overflow-y: hidden
+        table
+            width: 100%
+            border-collapse: collapse
+            background-color: #ffffff
+            tr:first-child
+                td
+                    padding-top: 21px
+                    padding-bottom: 21px
+                    border-top: none
+            td
+                border: 1px solid #dce3ec
+                padding-top: 9px
+                padding-bottom: 9px
+                padding-right: 5px
+                padding-left: 5px
+                font-size: 11.5px
+                font-weight: 400
+                color: #616368
+            tr:nth-child(2)
+                td
+                    font-size: 12.4px
+                    font-weight: 600
+                    color: #242f51
+            tr
+                td:first-child
+                    border-left: none
+                td:last-child
+                    border-right: none
+            tr:last-child
+                td
+                    border-bottom: none
+    &__block-table-counters-previous
+        background-color: #ffffff
+        box-shadow: 0px 13px 24px 0px rgba(168,176,192,0.2)
+        border-radius: 6px
+        margin-bottom: 24px
+        overflow-x: auto
+        overflow-y: hidden
+        table
+            width: 100%
+            border-collapse: collapse
+            background-color: #ffffff
+            tr
+                td
+                    padding-top: 6px
+                    padding-bottom: 8px
+            tr:first-child
+                td
+                    font-size: 12.4px
+                    font-weight: 600
+                    color: #242f51
+                td:nth-child(2)
+                    padding-top: 13px
+                    padding-bottom: 13px
+            tr:nth-child(2n+4)
+                background-color: #f5f7fa
 .footer
     margin: 0 auto
     max-width: 1120px

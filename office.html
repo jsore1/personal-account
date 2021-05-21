@@ -184,52 +184,52 @@
                                                     <button class="tabs-content__button tabs-content__button_green">Оплатить</button>
                                                     <button class="tabs-content__button tabs-content__button_blue">Печать квитанции</button>
                                                 </div>
-                                                <div class="row center-xs">
-                                                    <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
-                                                        <div class="tabs-content__block-table-payments-charges">
-                                                            <table>
-                                                                <tr>
-                                                                    <td>Номер</td>
-                                                                    <td>Наименование услуги</td>
-                                                                    <td>Тариф</td>
-                                                                    <td>Норматив</td>
-                                                                    <td>Полная стоимость</td>
-                                                                    <td>Льгота</td>
-                                                                    <td>Перерасчет</td>
-                                                                    <td>К оплате</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>Содерж.общего имущ.</td>
-                                                                    <td>11,56</td>
-                                                                    <td>92,30</td>
-                                                                    <td>1066,99</td>
-                                                                    <td>00,00</td>
-                                                                    <td>00,00</td>
-                                                                    <td>1066,99</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2</td>
-                                                                    <td>Обсл. лифта</td>
-                                                                    <td>11,56</td>
-                                                                    <td>92,30</td>
-                                                                    <td>1066,99</td>
-                                                                    <td>00,00</td>
-                                                                    <td>00,00</td>
-                                                                    <td>1066,99</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td></td>
-                                                                    <td>Итого</td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td>1066,99</td>
-                                                                    <td>00,00</td>
-                                                                    <td>00,00</td>
-                                                                    <td>1066,99</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
+                                            </div>
+                                            <div class="row center-xs">
+                                                <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
+                                                    <div class="tabs-content__block-table-payments-charges">
+                                                        <table>
+                                                            <tr>
+                                                                <td>Номер</td>
+                                                                <td>Наименование услуги</td>
+                                                                <td>Тариф</td>
+                                                                <td>Норматив</td>
+                                                                <td>Полная стоимость</td>
+                                                                <td>Льгота</td>
+                                                                <td>Перерасчет</td>
+                                                                <td>К оплате</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>Содерж.общего имущ.</td>
+                                                                <td>11,56</td>
+                                                                <td>92,30</td>
+                                                                <td>1066,99</td>
+                                                                <td>00,00</td>
+                                                                <td>00,00</td>
+                                                                <td>1066,99</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2</td>
+                                                                <td>Обсл. лифта</td>
+                                                                <td>11,56</td>
+                                                                <td>92,30</td>
+                                                                <td>1066,99</td>
+                                                                <td>00,00</td>
+                                                                <td>00,00</td>
+                                                                <td>1066,99</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>Итого</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>1066,99</td>
+                                                                <td>00,00</td>
+                                                                <td>00,00</td>
+                                                                <td>1066,99</td>
+                                                            </tr>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
@@ -309,7 +309,115 @@
                         </div>
                     </div>
                 </div>
-                
+                <div id="counters" class="tabs-content__block">
+                    <div class="row center-xs">
+                        <h2 class="tabs-content__title col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">Счетчики. Ввод показаний за Апрель 2021</h2>
+                        <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
+                            <div class="tabs-content__block-table-counters">
+                                <table>
+                                    <tr>
+                                        <td colspan="7">
+                                            <h3 class="tabs-content__counters-title">Начисления по услугам</h3>
+                                            <span class="tabs-content__counters-subtitle">Для получения истории показаний счетчиков нажмите [+] слева от названия соответствующего счетчика</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Тип счетчика</td>
+                                        <td>Номер счетчика</td>
+                                        <td>Дата поверки</td>
+                                        <td>Предыдущие показания</td>
+                                        <td>Текущие показания</td>
+                                        <td>Дата</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a class="tabs-content__minus"></a></td>
+                                        <td>ХВС1 (м3)</td>
+                                        <td>030004275</td>
+                                        <td>07.08.2023</td>
+                                        <td>68.790 (Март 2021)</td>
+                                        <td><input type="text" class="tabs-content__counters-input"></td>
+                                        <td><a href="" class="tabs-content__counters-link-save">Сохранить</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="7">
+                                            <div class="row center-xs tabs-content__zero-margin">
+                                                <h3 class="tabs-content__charges-title col-xs-6 col-sm-6 col-md-5 col-lg-6 col-xl-7">Показания по счетчику за предыдущие периоды</h3>
+                                                <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
+                                                    <div class="tabs-content__block-table-counters-previous">
+                                                        <table>
+                                                            <tr>
+                                                                <td rowspan="2">Период</td>
+                                                                <td colspan="2">Показания</td>
+                                                                <td rowspan="2">Расход</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Начальные</td>
+                                                                <td>Текущие</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Март 2021</td>
+                                                                <td>68.790 м3</td>
+                                                                <td>68.790 м3</td>
+                                                                <td>0.000 м3</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Март 2021</td>
+                                                                <td>68.790 м3</td>
+                                                                <td>68.790 м3</td>
+                                                                <td>0.000 м3</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Март 2021</td>
+                                                                <td>68.790 м3</td>
+                                                                <td>68.790 м3</td>
+                                                                <td>0.000 м3</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Март 2021</td>
+                                                                <td>68.790 м3</td>
+                                                                <td>68.790 м3</td>
+                                                                <td>0.000 м3</td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a class="tabs-content__plus"></a></td>
+                                        <td>ХВС1 (м3)</td>
+                                        <td>030004275</td>
+                                        <td>07.08.2023</td>
+                                        <td>68.790 (Март 2021)</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a class="tabs-content__plus"></a></td>
+                                        <td>ХВС1 (м3)</td>
+                                        <td>030004275</td>
+                                        <td>07.08.2023</td>
+                                        <td>68.790 (Март 2021)</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a class="tabs-content__plus"></a></td>
+                                        <td>ХВС1 (м3)</td>
+                                        <td>030004275</td>
+                                        <td>07.08.2023</td>
+                                        <td>68.790 (Март 2021)</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <p class="tabs-content__paragraph col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11"><span class="tabs-content__warn">Внимание!</span> В столбец «Текущие показания» вносятся текущие показания по всем типам счетчиков (указывайте показания только до запятой).<br>После ввода показаний счетчиков нажмите кнопку «Сохранить»</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
