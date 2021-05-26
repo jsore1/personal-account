@@ -246,6 +246,8 @@ body
         margin-left: 43px
         text-align: left
         font-size: 14px
+        overflow-x: auto
+        overflow-y: hidden
         td:nth-child(1)
             padding-right: 19px
             font-weight: 500
@@ -669,6 +671,9 @@ body
             border-top: 3px solid $primary-color
 @media screen and ( max-width: 575px )
     .personal-acc
+        &__wrap
+            overflow-x: auto
+            overflow-y: hidden
         &__button:nth-child(1)
             margin-top: 15px
         &__tabs
@@ -685,6 +690,9 @@ body
         &__tab_pressed
             background-color: #e6f4fa
             border-top: 3px solid $primary-color
+        &__info-table
+            margin-top: 66px
+            margin-left: 0
     .tabs-content
         &__title
             font-size: 20px
