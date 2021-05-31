@@ -284,27 +284,36 @@
                         <div class="col-xs-11 col-sm-8 col-md-6 col-lg-4 col-xl-4">
                             <div class="tabs-content__profile">
                                 <h3 class="tabs-content__profile-subtitle">Сменить пароль</h3>
-                                <input type="password" class="tabs-content__profile-input" placeholder="Текущий пароль">
-                                <input type="password" class="tabs-content__profile-input" placeholder="Новый пароль">
-                                <input type="password" class="tabs-content__profile-input" placeholder="Подтверждение пароля">
-                                <button class="tabs-content__profile-button">Изменить пароль</button>
+                                <input type="password" name="pwd" class="tabs-content__profile-input" placeholder="Текущий пароль">
+                                <input type="password" name="newpwd1" class="tabs-content__profile-input" placeholder="Новый пароль">
+                                <input type="password" name="newpwd2" class="tabs-content__profile-input" placeholder="Подтверждение пароля">
+                                <button class="tabs-content__profile-button" id="btnPwdChange">Изменить пароль</button>
                             </div>
                         </div>
                         <div class="col-xs-11 col-sm-8 col-md-6 col-lg-4 col-xl-4">
                             <div class="tabs-content__profile">
-                                <h3 class="tabs-content__profile-subtitle">Сменить e-mail</h3>
-                                <input type="password" class="tabs-content__profile-input" placeholder="Текущий пароль">
-                                <input type="email" class="tabs-content__profile-input" placeholder="Новый email">
-                                <input type="email" class="tabs-content__profile-input" placeholder="Подтверждение email">
-                                <button class="tabs-content__profile-button">Изменить email</button>
+                                <form>
+                                    <h3 class="tabs-content__profile-subtitle">Сменить e-mail</h3>
+                                    <input type="password" name="email-pwd" class="tabs-content__profile-input" placeholder="Текущий пароль">
+                                    <input type="email" name="newemail1" class="tabs-content__profile-input" placeholder="Новый email">
+                                    <input type="email" name="newemail2" class="tabs-content__profile-input" placeholder="Подтверждение email">
+                                    <button class="tabs-content__profile-button" id="btnEmailChange" type="submit">Изменить email</button>
+                                </form>
                             </div>
                         </div>
                         <div class="col-xs-11 col-sm-8 col-md-5 col-lg-4 col-xl-4">
                             <div class="tabs-content__profile">
                                 <h3 class="tabs-content__profile-subtitle">Сменить телефон</h3>
-                                <input type="password" class="tabs-content__profile-input" placeholder="Текущий пароль">
-                                <input type="text" class="tabs-content__profile-input" placeholder="Новый телефон">
-                                <button class="tabs-content__profile-button tabs-content__profile-button_phone">Изменить телефон</button>
+                                <input type="password" name="phone-pwd" class="tabs-content__profile-input" placeholder="Текущий пароль">
+                                <input type="text" name="newphone" class="tabs-content__profile-input" placeholder="Новый телефон" id="phone">
+								<input type="hidden" name="smscode" />
+                                <button class="tabs-content__profile-button tabs-content__profile-button_phone" id="btnPhoneChange">Изменить телефон</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row center-xs">
+                        <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
+                            <div class="tabs-content__profile-err">
                             </div>
                         </div>
                     </div>
@@ -433,6 +442,7 @@
         <div class="shadow__right"></div>
     </div>
     <script src="js/cookie.js"></script>
+    <script src="js/maskPhone.js"></script>
     <script src="js/office.js"></script>
 </body>
 </html>
