@@ -568,7 +568,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         if (id && id !== lastsel) {
                             let beforeEditVal = (newData[i] != "") ? parseFloat(newData[i]) : -1;
                             if (!isEditable[i]) return false;
-                            countersTableClickableRows[i].getElementsByTagName("td")[5].innerHTML = '<input type="text" class="tabs-content__counters-input" name="NewData" value="' + newData[i] +'">';
+                            countersTableClickableRows[i].getElementsByTagName("td")[5].innerHTML = '<input type="text" class="tabs-content__counters-input" name="NewData" value="' + parseFloat(newData[i]) +'">';
                             countersTableClickableRows[i].getElementsByTagName("td")[5].getElementsByTagName("input")[0].focus();
                             countersTableClickableRows[i].getElementsByTagName("td")[5].getElementsByTagName("input")[0].select();
                             countersTableClickableRows[i].getElementsByTagName("td")[6].innerHTML = '<a href="" class="tabs-content__counters-link-save">Сохранить</a>';
