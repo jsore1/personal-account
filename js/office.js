@@ -508,7 +508,7 @@ document.addEventListener("DOMContentLoaded", () => {
             counterNumber[i] + '</td><td>' + 
             dateVerifyNew[i][2] + pointVerify[i] + dateVerifyNew[i][1] + pointVerify[i] + dateVerifyNew[i][0] + '</td><td>' + 
             prevData[i] + '</td><td>' + 
-            newData[i] + '</td><td>' + 
+            parseFloat(newData[i]) + '</td><td>' + 
             ymd[i][2] + point[i] + ymd[i][1] + point[i] + ymd[i][0] + ' ' + hms[i] + '</td><td style="display: none;">' + 
             isWater[i] + '</td><td style="display: none;">' + 
             isEditable[i] + '</td><td style="display: none;">' + 
@@ -661,7 +661,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             });
                             countersTableClickableRows[i].getElementsByTagName("td")[5].getElementsByTagName("input")[0].addEventListener("focusout", focusOut);
                             function focusOut() {
-                                countersTableClickableRows[i].getElementsByTagName("td")[5].innerHTML = newData[i];
+                                countersTableClickableRows[i].getElementsByTagName("td")[5].innerHTML = parseFloat(newData[i]);
                                 countersTableClickableRows[i].getElementsByTagName("td")[6].innerHTML = ymd[i][2] + point[i] + ymd[i][1] + point[i] + ymd[i][0] + ' ' + hms[i];
                                 lastsel = -1;
                             }
