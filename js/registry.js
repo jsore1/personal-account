@@ -89,26 +89,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     select.addEventListener("change", () =>{
         setCookie("tsg", select.value, {expires: 180});
-        inputFlat.disabled = false;
-        inputEmail.disabled = false;
-        inputPhone.disabled = false;
-        inputSquare.disabled = false;
-        fioField.disabled = false;
-        checkBoxTerms.disabled = false;
+        //inputFlat.disabled = false;
+        //inputEmail.disabled = false;
+        //inputPhone.disabled = false;
+        //inputSquare.disabled = false;
+        //fioField.disabled = false;
+        //checkBoxTerms.disabled = false;
         document.querySelector('input[name="tsgcode"]').value = tsgCode;      
     });
     if (tsgCode != "" && tsgCode != null && tsgCode != undefined) {
         select.value = tsgCode;
     } else if (select.options.length == 1) {
-        select.value = select.options[0].value;
+        select.value = select.options[1].value;
+        setCookie("tsg", select.value, {expires: 180});
     } else {
-        inputFlat.disabled = true;
-        inputEmail.disabled = true;
-        inputPhone.disabled = true;
-        inputSquare.disabled = true;
-        inputFio.disabled = true;
-        fioField.disabled = true;
-        checkBoxTerms.disabled = true;
+        //login.disabled = true;
+        //password.disabled = true;
+        //btn.disabled = true;
+        //registry.addEventListener("click", aClick);
+        //remember.addEventListener("click", aClick);
+        select.value = select.options[1].value;
+        setCookie("tsg", select.value, {expires: 180});
     }
 
     //applicationBtn.addEventListener("click", () => {

@@ -13,81 +13,83 @@
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-	<header class="header">
-        <div class="row center-xs middle-xs between-sm">
-            <div class="header__logo col-xs-12 col-sm-3 col-md-3 col-lg-2 col-xl-2">
-                <a href="./"><img src="images/gallery/f8wmasjj.jpg" alt="Логотип"></a>
-            </div>
-            <div class="header__title col-xs-6 col-sm-7 col-md-8 col-lg-9 col-xl-9">
-                <a href="./"><h1>Товарищество собственников жилья «Фортис»</h1></a>
-            </div>
-        </div>
-    </header>
-    <nav class="menu">
-        <ul class="menu__main row start-xs">
-            <li class="menu__home col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"><a href="./" title="Главная страница">&nbsp;</a></li>
-        </ul>
-    </nav>
-    <div class="shadow">
-        <div class="shadow__right"></div>
-    </div>
+	<div class="main">
+		<header class="header">
+			<div class="row center-xs middle-xs between-sm">
+				<div class="header__logo col-xs-12 col-sm-3 col-md-3 col-lg-2 col-xl-2">
+					<a href="./"><img src="images/gallery/f8wmasjj.jpg" alt="Логотип"></a>
+				</div>
+				<div class="header__title col-xs-6 col-sm-7 col-md-8 col-lg-9 col-xl-9">
+					<a href="./"><h1>Товарищество собственников жилья «Фортис»</h1></a>
+				</div>
+			</div>
+		</header>
+		<nav class="menu">
+			<ul class="menu__main row start-xs">
+				<li class="menu__home col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"><a href="./" title="Главная страница">&nbsp;</a></li>
+			</ul>
+		</nav>
+		<div class="shadow">
+			<div class="shadow__right"></div>
+		</div>
 
-	<div class="login-form">
-		<div class="row center-xs">
-			<div class="col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11">
-				<h2 class="login-form__title">Заявка на регистрацию.<br>Подтверждение кода</h2>
+		<div class="login-form">
+			<div class="row center-xs">
+				<div class="col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11">
+					<h2 class="login-form__title">Заявка на регистрацию.<br>Подтверждение кода</h2>
+				</div>
+			</div>
+			<div class="row center-xs">
+				<div id="msg" class="login-form__message col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">Код подтверждения отправлен по SMS на номер </div>
+			</div>
+			<div class="row center-xs">
+				<input type="text" id="confirmCode" name="confirmcode" class="login-form__input col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11" required placeholder="Код">
+			</div>
+			<div class="row center-xs">
+				<input type="submit" class="login-form__button col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11" id="confirmRequest" value="Подтвердить код">
+			</div>
+			<div class="row center-xs">
+				<div class="login-form__link-text col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"><a href="#" id="repeatRequest">Отправить заново</a></div>
+			</div>
+			<div class="row center-xs">
+				<div class="login-form__error col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
+			</div>
+			<div class="row center-xs">
+				<div class="login-form__message-ok col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
+					<h4>Спасибо за регистрацию в Личном кабинете!</h4>
+				</div>
+				<div class="login-form__message-ok col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
+					<p>Ваша заявка принята к рассмотрению.</p>
+				</div>
+				<div class="login-form__message-ok col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
+					<p>Проверьте, пожалуйста, почту, Вам отправлено письмо с дополнительной информацией.</p>
+				</div>
+				<div class="login-form__message-ok col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
+					<p>Если Вы не получили письмо о регистрации в течение 10 минут,<br> проверьте папку для спама: возможно, письмо там.<br> В противном случае обратитесь в службу поддержки.</p>
+				</div>
+			</div>
+			<div class="row center-xs">
+				<div class="login-form__error col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">Неправильно указан телефон</div>
+			</div>
+			<div class="row center-xs">
+				<div class="login-form__error col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">В настоящее время заявка на регистрацию не может быть создана. Приносим извинения за неудобства, наши технические специалисты ведут работы над устранением проблемы. Попробуйте, пожалуйста, позже.</div>
+			</div>
+			<div class="row center-xs">
+				<input type="submit" class="login-form__button login-form__button_hide col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11" id="exitRequest" value="Выход">
 			</div>
 		</div>
-		<div class="row center-xs">
-			<div id="msg" class="login-form__message col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">Код подтверждения отправлен по SMS на номер </div>
-		</div>
-		<div class="row center-xs">
-			<input type="text" id="confirmCode" name="confirmcode" class="login-form__input col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11" required placeholder="Код">
-		</div>
-		<div class="row center-xs">
-			<input type="submit" class="login-form__button col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11" id="confirmRequest" value="Подтвердить код">
-		</div>
-		<div class="row center-xs">
-			<div class="login-form__link-text col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"><a href="#" id="repeatRequest">Отправить заново</a></div>
-		</div>
-		<div class="row center-xs">
-			<div class="login-form__error col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
-		</div>
-		<div class="row center-xs">
-			<div class="login-form__message-ok col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
-				<h4>Спасибо за регистрацию в Личном кабинете!</h4>
+
+		<footer class="footer">
+			<div class="row center-xs">
+				<div class="col-xs-7 col-sm-10 col-md-9 col-lg-10 col-xl-11">
+					<p>Официальный сайт ТСЖ «Фортис».<br> Телефон: +79602574470.</p>
+				</div>
 			</div>
-			<div class="login-form__message-ok col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
-				<p>Ваша заявка принята к рассмотрению.</p>
-			</div>
-			<div class="login-form__message-ok col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
-				<p>Проверьте, пожалуйста, почту, Вам отправлено письмо с дополнительной информацией.</p>
-			</div>
-			<div class="login-form__message-ok col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
-				<p>Если Вы не получили письмо о регистрации в течение 10 минут,<br> проверьте папку для спама: возможно, письмо там.<br> В противном случае обратитесь в службу поддержки.</p>
-			</div>
-		</div>
-		<div class="row center-xs">
-			<div class="login-form__error col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">Неправильно указан телефон</div>
-		</div>
-		<div class="row center-xs">
-			<div class="login-form__error col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">В настоящее время заявка на регистрацию не может быть создана. Приносим извинения за неудобства, наши технические специалисты ведут работы над устранением проблемы. Попробуйте, пожалуйста, позже.</div>
-		</div>
-		<div class="row center-xs">
-			<input type="submit" class="login-form__button login-form__button_hide col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11" id="exitRequest" value="Выход">
+		</footer>
+		<div class="shadow">
+			<div class="shadow__right"></div>
 		</div>
 	</div>
-
-	<footer class="footer">
-        <div class="row center-xs">
-            <div class="col-xs-7 col-sm-10 col-md-9 col-lg-10 col-xl-11">
-                <p>Официальный сайт ТСЖ «Фортис».<br> Телефон: +79602574470.</p>
-            </div>
-        </div>
-    </footer>
-    <div class="shadow">
-        <div class="shadow__right"></div>
-    </div>
 	<script>
 		document.addEventListener("DOMContentLoaded", () => {
 			const exitButton = document.getElementById("exitRequest");

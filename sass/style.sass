@@ -1,7 +1,7 @@
 $primary-color: #2898ff
 $second-color: #2dba55
 body
-    background-image:url("../images/gallery/qhktbnjc.png")
+    background: transparent url(../images/gallery/qhktbnjc.png) no-repeat fixed center top
     font-family: Montserrat
     font-size: 12px
     font-weight: 500
@@ -54,6 +54,8 @@ body
         box-shadow: 1px 1px 3px #000
     &__close:hover
         background: #2898ff
+    &__title
+        margin-top: 40px
 .modal-dialog:target
     display: block
     pointer-events: auto
@@ -84,6 +86,21 @@ body
     padding-bottom: 10px
     padding-left: 5px
     padding-right: 5px
+.information-window
+    display: none
+    position: absolute
+    background-color: #e6f4fa
+    border: 2px solid #dce3ec
+    border-radius: 6px
+    min-height: 30px
+    width: 200px
+    margin-left: -150px
+    margin-top: 10px
+    padding-top: 10px
+    padding-bottom: 10px
+    padding-left: 5px
+    padding-right: 5px
+    z-index: 1000
 .header
     margin: 0 auto
     max-width: 1120px
@@ -219,7 +236,7 @@ body
         color: #2dba55
     &__error
         display: none
-        margin-top: 5px
+        margin-top: 10px
         font-size: 14px
         color: #ff3838
 .personal-acc
@@ -243,7 +260,6 @@ body
         color: $primary-color
     &__info-table
         margin-top: 66px
-        margin-left: 43px
         text-align: left
         font-size: 14px
         overflow-x: auto
@@ -255,6 +271,16 @@ body
         td:nth-child(2)
             font-weight: 600
             color: #3e4044
+    &__deposit
+        font-size: 14px
+        font-weight: 500
+        color: #616368
+        border: 5px solid #b9eaff
+        padding: 30px 0px
+    &__deposit_number
+        display: inline
+        font-weight: 600
+        color: #3e4044
     &__button
         margin-left: 0px
         width: 183px
@@ -265,7 +291,7 @@ body
         font-weight: 700
         color: #ffffff
     &__button:nth-child(1)
-        margin-top: 66px
+        margin-top: 56px
     &__button:nth-child(2)
         margin-top: 9px
     &__button_green
@@ -273,11 +299,11 @@ body
     &__button_blue
         background-color: $primary-color
     &__tabs
-        margin-top: 58px
+        margin-top: 28px
         margin-left: 40px
     &__tab
         display: inline-block
-        padding: 25px 30px 18px 30px
+        padding: 8px 30px 8px 30px
         font-size: 16px
         font-weight: 500
         color: #242f51
@@ -285,24 +311,41 @@ body
         border: 2px solid #dce3ec
         border-radius: 6px
         margin-left: 8px
+        text-align: center
+        vertical-align: middle
     &__tab:first-child
         margin-left: 0
+    &__tab:nth-child(2n)
+        padding-bottom: 18px
+        padding-top: 14px
     &__tab_pressed
         background-color: #e6f4fa
         border-top: 3px solid $primary-color
+        margin-bottom: -1px
+        margin-top: -2px
 .tabs-content
     margin-top: -5px
     width: 1033px
     border: 2px solid #dce3ec
     border-radius: 6px
     background-color: #e6f4fa
+    &__information
+        display: inline-block
+        margin-left: 5px
+        background-image: url("../images/information.png")
+        background-repeat: no-repeat
+        width: 16px
+        height: 16px
+        background-size: cover
+        vertical-align: bottom
     &__title
         margin-top: 40px
         font-size: 24.8px
         font-weight: 700
         color: #242f51
     &__subtitle
-        margin-top: 0
+        margin-top: 15px
+        margin-bottom: 55px
         font-size: 11.5px
         font-weight: 400
         color: #616368
@@ -324,7 +367,8 @@ body
         background-repeat: no-repeat
         cursor: pointer
     &__charges-title
-        margin-left: 30px
+        margin-left: 50px
+        margin-right: 10px
         font-size: 15.9px
         font-weight: 700
         color: #242f51
@@ -353,13 +397,23 @@ body
         font-size: 14.2px
         font-weight: 700
         color: #ffffff
+    &__profile-button:disabled
+        background-color: #bbbbbb
+    &__profile-button_email
+        margin-top: 80px
     &__profile-button_phone
         margin-top: 80px
+    &__profile-button_phone:disabled
+        background-color: #bbbbbb
     &__profile-err
         margin-top: 20px
         margin-bottom: 61px
         font-size: 14px
         color: #ff3838
+    &__profile-err2
+        font-size: 14px
+        color: #ff3838
+        margin-top: 10px
     &__profile-input_error
         border: 2px solid #e97f7f
     &__counters-title
@@ -469,7 +523,6 @@ body
     &__block-table-payments
         box-shadow: 0px 13px 24px 0px rgba(168,176,192,0.2)
         border-radius: 6px
-        margin-bottom: 70px
         overflow-x: auto
         overflow-y: hidden
         table
@@ -481,10 +534,12 @@ body
                 font-weight: 500
                 color: #4c4e52
                 td
-                    padding: 10px 21px
+                    padding: 10px 10px
                     border: 1px solid #dce3ec
                 td:first-child
                     padding: 10px 8px
+                td:nth-child(6)
+                    padding: 10px 5px
             tr:first-child
                 font-size: 12.4px
                 font-weight: 600
@@ -553,11 +608,6 @@ body
             width: 100%
             border-collapse: collapse
             background-color: #ffffff
-            tr:first-child
-                td
-                    padding-top: 21px
-                    padding-bottom: 21px
-                    border-top: none
             td
                 border: 1px solid #dce3ec
                 padding-top: 9px
@@ -567,7 +617,14 @@ body
                 font-size: 12.5px
                 font-weight: 500
                 color: #4c4e52
-            tr:nth-child(2)
+                height: 25px
+            tr:first-child
+                td:nth-child(7)
+                    width: 130px
+                td:nth-child(6)
+                    color: #be7c3a
+                    width: 150px
+            tr:nth-child(1)
                 td
                     font-size: 12.4px
                     font-weight: 600
@@ -642,7 +699,7 @@ body
         &__tabs
             margin-left: 35px
         &__tab
-            padding: 25px 20px 18px 20px
+            padding: 8px 25px 8px 25px
             font-size: 14px
             font-weight: 500
             color: #242f51
@@ -657,17 +714,22 @@ body
     .personal-acc
         &__button:nth-child(1)
             margin-top: 15px
+        &__deposit
+            margin-top: 15px
         &__tabs
             margin-left: 25px
         &__tab
-            padding: 25px 10px 18px 10px
+            padding: 8px 8px 8px 8px
             font-size: 12px
             font-weight: 500
             color: #242f51
             text-decoration: none
             border: 2px solid #dce3ec
             border-radius: 6px
-            margin-left: 8px
+            margin-left: 2px
+        &__tab:nth-child(2n)
+            padding-bottom: 17px
+            padding-top: 13px
         &__tab_pressed
             background-color: #e6f4fa
             border-top: 3px solid $primary-color
@@ -681,14 +743,17 @@ body
         &__tabs
             margin-left: 17px
         &__tab
-            padding: 15px 5px 18px 5px
-            font-size: 10px
+            padding: 8px 2px 8px 2px
+            font-size: 9px
             font-weight: 500
             color: #242f51
             text-decoration: none
             border: 2px solid #dce3ec
             border-radius: 6px
             margin-left: 0
+        &__tab:nth-child(2n)
+            padding-bottom: 15px
+            padding-top: 11px
         &__tab_pressed
             background-color: #e6f4fa
             border-top: 3px solid $primary-color
@@ -710,7 +775,7 @@ body
         &__tabs
             margin-left: 10px
         &__tab
-            padding: 15px 5px 18px 5px
+            padding: 8px 2px 8px 2px
             font-size: 9px
             font-weight: 500
             color: #242f51
@@ -718,6 +783,9 @@ body
             border: 2px solid #dce3ec
             border-radius: 6px
             margin-left: 0
+        &__tab:nth-child(2n)
+            padding-bottom: 15px
+            padding-top: 11px
         &__tab_pressed
             background-color: #e6f4fa
             border-top: 3px solid $primary-color

@@ -7,16 +7,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     select.addEventListener("change", () =>{
         setCookie("tsg", select.value, {expires: 180});
-        user.disabled = false;
-        btn.disabled = false;      
+        //user.disabled = false;
+        //btn.disabled = false;      
     });
     if (tsgCode != "" && tsgCode != null && tsgCode != undefined) {
         select.value = tsgCode;
     } else if (select.options.length == 1) {
-        select.value = select.options[0].value;
+        select.value = select.options[1].value;
+        setCookie("tsg", select.value, {expires: 180});
     } else {
-        user.disabled = true;
-        btn.disabled = true;   
+        //login.disabled = true;
+        //password.disabled = true;
+        //btn.disabled = true;
+        //registry.addEventListener("click", aClick);
+        //remember.addEventListener("click", aClick);
+        select.value = select.options[1].value;
+        setCookie("tsg", select.value, {expires: 180});
     }
 
     btn.addEventListener("click", () => {

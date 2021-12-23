@@ -13,79 +13,89 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-	<header class="header">
-        <div class="row center-xs middle-xs between-sm">
-            <div class="header__logo col-xs-12 col-sm-3 col-md-3 col-lg-2 col-xl-2">
-                <a href="./"><img src="images/gallery/f8wmasjj.jpg" alt="Логотип"></a>
-            </div>
-            <div class="header__title col-xs-6 col-sm-7 col-md-8 col-lg-9 col-xl-9">
-                <a href="./"><h1>Товарищество собственников жилья «Фортис»</h1></a>
-            </div>
-        </div>
-    </header>
-    <nav class="menu">
-        <ul class="menu__main row start-xs">
-            <li class="menu__home col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"><a href="./" title="Главная страница">&nbsp;</a></li>
-        </ul>
-    </nav>
-    <div class="shadow">
-        <div class="shadow__right"></div>
-    </div>
-    <div class="login-form">
-        <form>
-            <div class="row center-xs">
-                <select id="tsgcode" class="login-form__select col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11" autocomplete="off">
-                    <option selected disabled>Выберите ваш дом</option>
-                    <option value="1">Фортис</option>
-				</select>
-            </div>
-            <div class="row center-xs">
-                <div class="col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11">
-                    <h2 class="login-form__title">Вход в личный кабинет</h2>
+    <div class="main">
+        <header class="header">
+            <div class="row center-xs middle-xs between-sm">
+                <div class="header__logo col-xs-12 col-sm-3 col-md-3 col-lg-2 col-xl-2">
+                    <a href="./"><img src="images/gallery/f8wmasjj.jpg" alt="Логотип"></a>
+                </div>
+                <div class="header__title col-xs-6 col-sm-7 col-md-8 col-lg-9 col-xl-9">
+                    <a href="./"><h1>Товарищество собственников жилья «Фортис»</h1></a>
                 </div>
             </div>
-            <div class="row center-xs">
-                <input type="text" id="login" name="user" class="login-form__input login-form__input_name col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-12" required placeholder="Введите имя пользователя">
-                <div class="attention" id="name-attention"></div>
-                <div class="wrapper">
-                    <div class="attention-window" id="name-window">
-                        В качестве имени пользователя, как правило, используется <b>номер вашего лицевого счета</b> <i>(см. квитанцию на оплату коммунальных услуг)</i>.
+        </header>
+        <nav class="menu">
+            <ul class="menu__main row start-xs">
+                <li class="menu__home col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"><a href="./" title="Главная страница">&nbsp;</a></li>
+            </ul>
+        </nav>
+        <div class="shadow">
+            <div class="shadow__right"></div>
+        </div>
+        <div class="login-form">
+            <form>
+                <div class="row center-xs">
+                    <select id="tsgcode" class="login-form__select col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11" autocomplete="off">
+                        <option selected disabled>Выберите ваш дом</option>
+                        <option value="1">Фортис</option>
+                    </select>
+                </div>
+                <div class="row center-xs">
+                    <div class="col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11">
+                        <h2 class="login-form__title">Вход в личный кабинет</h2>
                     </div>
                 </div>
-            </div>
+                <div class="row center-xs">
+                    <input type="text" id="login" name="user" class="login-form__input login-form__input_name col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-12" required placeholder="Введите имя пользователя">
+                    <div class="attention" id="name-attention"></div>
+                    <div class="wrapper">
+                        <div class="attention-window" id="name-window">
+                            В качестве имени пользователя, как правило, используется <b>номер вашего лицевого счета</b> <i>(см. квитанцию на оплату коммунальных услуг)</i>.
+                        </div>
+                    </div>
+                </div>
+                <div class="row center-xs">
+                    <input type="password" name="pwd" class="login-form__input login-form__input_password col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11" required placeholder="Пароль">
+                </div>
+                <div class="row center-xs">
+                    <div class="login-form__error col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-3" id="pass_err"></div>
+                </div>
+                <div class="row center-xs">
+                    <input type="password" id="pwdn1" name="pwdn1" class="login-form__input login-form__input_password login-form__input_hidden col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11" placeholder="Новый пароль">
+                </div>
+                <div class="row center-xs">
+                    <input type="password" id="pwdn2" name="pwdn2" class="login-form__input login-form__input_password login-form__input_hidden col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11" placeholder="Повтор нового пароля">
+                </div>
+                <div class="row center-xs">
+                    <div class="login-form__error col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-3" id="passn2_err"></div>
+                </div>
+                <div class="row center-xs">
+                    <input type="submit" class="login-form__button col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11" value="Войти в личный кабинет">
+                </div>
+                <div class="row center-xs">
+                    <div id="registry" class="login-form__link-text col-xs-6 col-sm-5 col-md-3 col-lg-3 col-xl-3"><a href="Registry.php">Заявка на регистрацию</a></div>
+                    <div id="remember" class="login-form__link-text login-form__link-text_offset col-xs-5 col-sm-4 col-md-3 col-lg-2 col-xl-2"><a href="Remember.php">Забыли пароль?</a></div>
+                </div>
+            </form>
+        </div>
+        <footer class="footer">
             <div class="row center-xs">
-                <input type="password" name="pwd" class="login-form__input login-form__input_password col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11" required placeholder="Пароль">
+                <div class="col-xs-7 col-sm-10 col-md-9 col-lg-10 col-xl-11">
+                    <p>Официальный сайт ТСЖ «Фортис».<br> Телефон: +79602574470.</p>
+                </div>
             </div>
+        </footer>
+        <div class="shadow">
+            <div class="shadow__right"></div>
+        </div>
+        <div class="modal-dialog" id="change-pass">
             <div class="row center-xs">
-                <div class="login-form__error col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-3" id="pass_err"></div>
-            </div>
-            <div class="row center-xs">
-                <input type="password" id="pwdn1" name="pwdn1" class="login-form__input login-form__input_password login-form__input_hidden col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11" placeholder="Новый пароль">
-            </div>
-            <div class="row center-xs">
-                <input type="password" id="pwdn2" name="pwdn2" class="login-form__input login-form__input_password login-form__input_hidden col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11" placeholder="Повтор нового пароля">
-            </div>
-            <div class="row center-xs">
-                <div class="login-form__error col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-3" id="passn2_err"></div>
-            </div>
-            <div class="row center-xs">
-                <input type="submit" class="login-form__button col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-11" value="Войти в личный кабинет">
-            </div>
-            <div class="row center-xs">
-                <div id="registry" class="login-form__link-text col-xs-6 col-sm-5 col-md-3 col-lg-3 col-xl-3"><a href="Registry.php">Заявка на регистрацию</a></div>
-                <div id="remember" class="login-form__link-text login-form__link-text_offset col-xs-5 col-sm-4 col-md-3 col-lg-2 col-xl-2"><a href="Remember.php">Забыли пароль?</a></div>
-            </div>
-        </form>
-    </div>
-    <footer class="footer">
-        <div class="row center-xs">
-            <div class="col-xs-7 col-sm-10 col-md-9 col-lg-10 col-xl-11">
-                <p>Официальный сайт ТСЖ «Фортис».<br> Телефон: +79602574470.</p>
+                <div class="modal-dialog__content col-xs-11 col-sm-9 col-md-7 col-lg-5 col-xl-4">
+                    <h2 class=""></h2>
+                    <div class="row center-xs"></div>
+                </div>
             </div>
         </div>
-    </footer>
-    <div class="shadow">
-        <div class="shadow__right"></div>
     </div>
     <script src="js/cookie.js"></script>
     <script src="js/index.js"></script>

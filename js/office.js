@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let buttonTabs = document.querySelectorAll(".personal-acc__tab");
     buttonTabs[0].addEventListener("click", (event) => {
         event.preventDefault();
-        document.location.href = "./office.php#charges";
-        chargesTab.style.display = "block";
+        //document.location.href = "./office.php#counters";
+        chargesTab.style.display = "none";
         paymentsTab.style.display = "none";
         profileTab.style.display = "none";
-        countersTab.style.display = "none";
+        countersTab.style.display = "block";
         event.target.classList.add("personal-acc__tab_pressed");
         buttonTabs[1].classList.remove("personal-acc__tab_pressed");
         buttonTabs[2].classList.remove("personal-acc__tab_pressed");
@@ -22,9 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     buttonTabs[1].addEventListener("click", (event) => {
         event.preventDefault();
-        document.location.href = "./office.php#payments";
-        chargesTab.style.display = "none";
-        paymentsTab.style.display = "block";
+        //document.location.href = "./office.php#charges";
+        chargesTab.style.display = "block";
+        paymentsTab.style.display = "none";
         profileTab.style.display = "none";
         countersTab.style.display = "none";
         event.target.classList.add("personal-acc__tab_pressed");
@@ -34,10 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     buttonTabs[2].addEventListener("click", (event) => {
         event.preventDefault();
-        document.location.href = "./office.php#profile";
+        //document.location.href = "./office.php#payments";
         chargesTab.style.display = "none";
-        paymentsTab.style.display = "none";
-        profileTab.style.display = "block";
+        paymentsTab.style.display = "block";
+        profileTab.style.display = "none";
         countersTab.style.display = "none";
         event.target.classList.add("personal-acc__tab_pressed");
         buttonTabs[0].classList.remove("personal-acc__tab_pressed");
@@ -46,11 +46,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     buttonTabs[3].addEventListener("click", (event) => {
         event.preventDefault();
-        document.location.href = "./office.php#counters";
+        //document.location.href = "./office.php#profile";
         chargesTab.style.display = "none";
         paymentsTab.style.display = "none";
-        profileTab.style.display = "none";
-        countersTab.style.display = "block";
+        profileTab.style.display = "block";
+        countersTab.style.display = "none";
         event.target.classList.add("personal-acc__tab_pressed");
         buttonTabs[0].classList.remove("personal-acc__tab_pressed");
         buttonTabs[1].classList.remove("personal-acc__tab_pressed");
@@ -120,6 +120,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     // Для вкладки История начислений
+    const informations = document.querySelectorAll(".tabs-content__information");
+    const windows = document.querySelectorAll(".information-window");
+    addEvent(informations[0], windows[0]);
+    addEvent(informations[1], windows[1]);
+    function addEvent(attention, window) {
+        attention.addEventListener("mouseenter", () => {
+            window.style.display = "inline-block";
+        });
+        
+        attention.addEventListener("mouseleave", () => {
+            window.style.display = "none";
+        });
+    }
+
     const paymentsTable = document.getElementById("payments_table");
     let month = [], saldoIn = [], charge = [], pays = [], period = [], saldoOut = [], rowIds = [];
     let xhrForPayments = new XMLHttpRequest();
@@ -139,9 +153,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         for (let i = 0; i < month.length; i++) {
             let paysString;
-            paysString = pays[i] == null ? "0,00" : toString(pays[i]);
+            paysString = pays[i] == null ? "0,00" : pays[i];
             let periodString;
-            periodString = period[i] == null ? "" : toString(period[i]);
+            periodString = period[i] == null ? "" : period[i];
             let yyyymmdd = month[i].split("-");
             let mm = yyyymmdd[1];
             let yyyy = yyyymmdd[0];
@@ -228,16 +242,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const buttonPwdChange = document.getElementById("btnPwdChange");
     const buttonEmailChange = document.getElementById("btnEmailChange");
     const buttonPhoneChange = document.getElementById("btnPhoneChange");
-    const pwd = document.getElementsByName("pwd")[0];
     const pwdn1 = document.getElementsByName("newpwd1")[0];
     const pwdn2 = document.getElementsByName("newpwd2")[0];
     const email1 = document.getElementsByName("newemail1")[0];
-    const email2 = document.getElementsByName("newemail2")[0];
-    const emailPwd = document.getElementsByName("email-pwd")[0];
-    const phonePwd = document.getElementsByName("phone-pwd")[0];
     const phone = document.getElementsByName("newphone")[0];
     const code = document.getElementsByName("smscode")[0];
     const profileError = document.querySelector(".tabs-content__profile-err");
+    const modalDialog = document.querySelector(".modal-dialog");
+    const modalDialogTitle = document.querySelector(".modal-dialog__content").children[1];
+    const modalDialogBody = document.querySelector(".modal-dialog__content").children[2];
+    const modalDialogBtnClose = document.querySelector(".modal-dialog__close");
+    const smsCode = document.getElementsByName("smscode")[0];
+
+    modalDialogBtnClose.addEventListener("click", (event) => {
+        event.preventDefault();
+        modalDialog.style.display = "none";
+    });
 
     maskPhone("#phone", "+7 (___) ___-__-__");
 
@@ -246,14 +266,12 @@ document.addEventListener("DOMContentLoaded", () => {
         profileError.innerText = "";
         pwdn1.classList.remove("tabs-content__profile-input_error");
         pwdn2.classList.remove("tabs-content__profile-input_error");
-        pwd.classList.remove("tabs-content__profile-input_error");
         if (pwdn1.value != pwdn2.value) {
             pwdn1.classList.add("tabs-content__profile-input_error");
             pwdn2.classList.add("tabs-content__profile-input_error");
             profileError.innerText = "Новый пароль не соответствует повтору";
             pwdn2.focus();
             pwdn2.select();
-            pwd.value = "";
         } else {
             if (pwdn1.value.length < 6) {
                 pwdn1.classList.add("tabs-content__profile-input_error");
@@ -261,101 +279,188 @@ document.addEventListener("DOMContentLoaded", () => {
                 profileError.innerText = "Длина нового пароля должна быть больше или равна 6 символам";
                 pwdn1.focus();
                 pwdn1.select();
-                pwd.value = "";
             } else {
+                modalDialogTitle.innerText = "Чтобы сменить пароль, введите текущий пароль";
+                modalDialogBody.innerHTML = 
+                '<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11"><input type="password" name="pwd" class="tabs-content__profile-input" placeholder="Текущий пароль"></div>' +
+                '<div class="tabs-content__profile-err2 col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11"></div>' +
+                '<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11"><button class="tabs-content__profile-button" id="btnPwdChange2">Изменить пароль</button></div>';
+                modalDialog.style.display = "block";
+                modalDialog.style.pointerEvents = "auto";
+                const btnPwdChange2 = document.getElementById("btnPwdChange2");
+                const profileError2 = document.querySelector(".tabs-content__profile-err2");
+                const pwd = document.getElementsByName("pwd")[0];
+                pwd.style.width = "325px";
+                btnPwdChange2.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    pwd.classList.remove("tabs-content__profile-input_error");
+                    profileError2.innerText = "";
+                    let formData = new FormData();
+                    formData.append("method", "officeChgPwd");
+                    formData.append("pwd", pwd.value);
+                    formData.append("newpwd", pwdn1.value);
+                    let xhr = new XMLHttpRequest();
+                    xhr.open("POST", "OfficeHelper.php");
+                    xhr.send(formData);
+                    xhr.onload = () => {
+                        let resp = xhr.response;
+                        if (resp != '') {
+                            pwd.classList.add("tabs-content__profile-input_error");
+                            profileError2.innerText = "Неправильно введен пароль";
+                            pwd.focus();
+                            pwd.select();
+                        } else {
+                            modalDialogBtnClose.style.display = "none";
+                            modalDialogTitle.innerText = "Пароль изменен успешно";
+                            modalDialogBody.innerHTML = 
+                            '<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11"><button class="tabs-content__profile-button" id="btnPwdChangeOk">ОК</button></div>';
+                            const btnPwdChangeOk = document.getElementById("btnPwdChangeOk");
+                            btnPwdChangeOk.addEventListener("click", (event) => {
+                                event.preventDefault();
+                                modalDialog.style.display = "none";
+                                document.location.href = "./office.php";
+                            });
+                        }
+                    }
+                });
+            }
+        }
+    });
+
+    buttonEmailChange.addEventListener("click", (event) => {
+        const reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        
+        if (email1.value != "" && reg.test(email1.value) != false) {
+            event.preventDefault();
+            profileError.innerText = "";
+            modalDialogTitle.innerText = "Чтобы сменить email, введите текущий пароль";
+            modalDialogBody.innerHTML = 
+            '<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11"><input type="password" name="pwd" class="tabs-content__profile-input" placeholder="Текущий пароль"></div>' +
+            '<div class="tabs-content__profile-err2 col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11"></div>' +
+            '<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11"><button class="tabs-content__profile-button" id="btnEmailChange2">Изменить email</button></div>';
+            modalDialog.style.display = "block";
+            modalDialog.style.pointerEvents = "auto";
+            const btnEmailChange = document.getElementById("btnEmailChange2");
+            const profileErrorEmail = document.querySelector(".tabs-content__profile-err2");
+            const pwdEmail = document.getElementsByName("pwd")[0];
+            pwdEmail.style.width = "325px";
+            btnEmailChange.addEventListener("click", (event) => {
+                event.preventDefault();
+                pwdEmail.classList.remove("tabs-content__profile-input_error");
+                profileErrorEmail.innerText = "";
                 let formData = new FormData();
-                formData.append("method", "officeChgPwd");
-                formData.append("pwd", pwd.value);
-                formData.append("newpwd", pwdn1.value);
+                formData.append("method", "officeChgEmail");
+                formData.append("pwd", pwdEmail.value);
+                formData.append("email", email1.value);
                 let xhr = new XMLHttpRequest();
                 xhr.open("POST", "OfficeHelper.php");
                 xhr.send(formData);
                 xhr.onload = () => {
                     let resp = xhr.response;
                     if (resp != '') {
-                        alert(resp);
-                        pwd.classList.add("tabs-content__profile-input_error");
-                        profileError.innerText = "Неправильно введен пароль";
-                        pwd.focus();
-                        pwd.select();
+                        pwdEmail.classList.add("tabs-content__profile-input_error");
+                        profileErrorEmail.innerText = "Неправильно введен пароль";
+                        pwdEmail.focus();
+                        pwdEmail.select();
                     } else {
-                        alert("Пароль изменен успешно.");
-                        pwd.value = "";
+                        modalDialogBtnClose.style.display = "none";
+                        modalDialogTitle.innerText = "Адрес email изменен успешно";
+                        modalDialogBody.innerHTML = 
+                        '<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11"><button class="tabs-content__profile-button" id="btnEmailChangeOk">ОК</button></div>';
+                        const btnEmailChangeOk = document.getElementById("btnEmailChangeOk");
+                        btnEmailChangeOk.addEventListener("click", (event) => {
+                            event.preventDefault();
+                            modalDialog.style.display = "none";
+                            document.location.href = "./office.php";
+                        });
                     }
                 }
-            }
-        }
-    });
-
-    buttonEmailChange.addEventListener("click", (event) => {
-        event.preventDefault();
-        emailPwd.classList.remove("tabs-content__profile-input_error");
-        profileError.innerText = "";
-        email1.classList.remove("tabs-content__profile-input_error");
-        email2.classList.remove("tabs-content__profile-input_error");
-        if (email1.value != email2.value) {
-            profileError.innerText = "Новый адрес e-mail не соответствует повтору";
-            email1.classList.add("tabs-content__profile-input_error");
-            email2.classList.add("tabs-content__profile-input_error");
-            email2.focus();
-            email2.select();
-            emailPwd.value = "";
-        } else {
-            let formData = new FormData();
-            formData.append("method", "officeChgEmail");
-            formData.append("pwd", emailPwd.value);
-            formData.append("email", email1.value);
-            let xhr = new XMLHttpRequest();
-            xhr.open("POST", "OfficeHelper.php");
-            xhr.send(formData);
-            xhr.onload = () => {
-                let resp = xhr.response;
-                if (resp != '') {
-                    emailPwd.classList.add("tabs-content__profile-input_error");
-                    profileError.innerText = "Неправильно введен пароль";
-                    emailPwd.focus();
-                    emailPwd.select();
-                } else {
-                    alert("Адрес email изменен успешно.");
-                    emailPwd.value = "";
-                }
-            }
+            });
         }
     });
 
     buttonPhoneChange.addEventListener("click", (event) => {
-        event.preventDefault();
-        phonePwd.classList.remove("tabs-content__profile-input_error");
         profileError.innerText = "";
-        phone.classList.remove("tabs-content__profile-input_error");
-        let formData = new FormData();
-        formData.append("method", "officeChgPhone");
-        formData.append("pwd", phonePwd.value);
-        formData.append("phone", phone.value);
-        formData.append("code", code.value);
-        let xhr = new XMLHttpRequest();
-        xhr.open("POST", "OfficeHelper.php");
-        xhr.send(formData);
-        xhr.onload = () => {
-            let resp = xhr.response;
-            if (resp != '') {
-                phonePwd.classList.add("tabs-content__profile-input_error");
-                profileError.innerText = "Неправильно введен пароль";
-                phonePwd.focus();
-                phonePwd.select();
-            } else {
-                alert("Телефон изменен успешно.");
-                phonePwd.value = "";
-                phone.value = "";
-                code.value = "";
-            }
+        if (phone.value != "" && buttonPhoneChange.innerText === "Подтвердить код") {
+            event.preventDefault();
+            profileError.innerText = "";
+            modalDialogTitle.innerText = "Чтобы сменить телефон, введите текущий пароль";
+            modalDialogBody.innerHTML = 
+            '<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11"><input type="password" name="pwd" class="tabs-content__profile-input" placeholder="Текущий пароль"></div>' +
+            '<div class="tabs-content__profile-err2 col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11"></div>' +
+            '<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11"><button class="tabs-content__profile-button" id="btnPhoneChange2">Изменить телефон</button></div>';
+            modalDialog.style.display = "block";
+            modalDialog.style.pointerEvents = "auto";
+            const btnPhoneChange = document.getElementById("btnPhoneChange2");
+            const profileError2 = document.querySelector(".tabs-content__profile-err2");
+            const pwdPhone = document.getElementsByName("pwd")[0];
+            pwdPhone.style.width = "325px";
+            btnPhoneChange.addEventListener("click", (event) => {
+                event.preventDefault();
+                pwdPhone.classList.remove("tabs-content__profile-input_error");
+                profileError2.innerText = "";
+                let formData = new FormData();
+                formData.append("method", "officeChgPhone");
+                formData.append("pwd", pwdPhone.value);
+                formData.append("phone", phone.value);
+                formData.append("code", code.value);
+                let xhr = new XMLHttpRequest();
+                xhr.open("POST", "OfficeHelper.php");
+                xhr.send(formData);
+                xhr.onload = () => {
+                    let resp = xhr.response;
+                    if (resp != '') {
+                        console.log(resp);
+                        pwdPhone.classList.add("tabs-content__profile-input_error");
+                        profileError2.innerText = "Неправильно введен пароль";
+                        pwdPhone.focus();
+                        pwdPhone.select();
+                    } else {
+                        modalDialogBtnClose.style.display = "none";
+                        modalDialogTitle.innerText = "Телефон изменен успешно";
+                        modalDialogBody.innerHTML = 
+                        '<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-11"><button class="tabs-content__profile-button" id="btnPhoneChangeOk">ОК</button></div>';
+                        const btnPhoneChangeOk = document.getElementById("btnPhoneChangeOk");
+                        btnPhoneChangeOk.addEventListener("click", (event) => {
+                            event.preventDefault();
+                            modalDialog.style.display = "none";
+                            document.location.href = "./office.php";
+                        });
+                    }
+                }
+            });
         }
+        if (phone.value != "" && buttonPhoneChange.innerText === "Изменить телефон") {
+            event.preventDefault();
+            buttonPhoneChange.disabled = true;
+            let formData = new FormData();
+            formData.append("mobile", phone.value);
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "getSmsCode.php");
+            xhr.send(formData);
+            xhr.onload = () => {
+                let resp = JSON.parse(xhr.response);
+                if (resp.error) {
+                    profileError.innerText = "При отправке смс кода возникла ошибка";
+                } else {
+                    alert('Смс код был отправлен на номер ' + phone.value + '\nВведите его в поле "Смс код"');
+                    smsCode.setAttribute("type", "text");
+                    smsCode.focus();
+                    smsCode.select();
+                    buttonPhoneChange.style.marginTop = "14px";
+                    buttonPhoneChange.disabled = false;
+                    buttonPhoneChange.innerText = "Подтвердить код";
+                }
+
+            }
+        } 
     });
 
     // Для вкладки счетчики
     const countersTable = document.getElementById("counters_table");
     let counterTypeName = [], counterNumber = [], dateVerify = [], prevData = [], newData = [], newDataMonth = [], isWater = [], isEditable = [], isNewData = [], counterIds = [];
-    let ymd = [], hms = [], point = [];
+    let ymd = [], hms = [], point = [], pointVerify = [];
+    let dateVerifyNew = [];
     let countersTableClickableRows = [];
     let xhrForCounters = new XMLHttpRequest();
     xhrForCounters.open("POST", "requestCntrData.php");
@@ -388,6 +493,11 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             if (dateVerify[i] == null) {
                 dateVerify[i] = "";
+                dateVerifyNew[i] = ["", "", ""];
+                pointVerify[i] = "";
+            } else {
+                dateVerifyNew[i] = dateVerify[i].split("-");
+                pointVerify[i] = ".";
             }
             if (counterNumber[i] == null) {
                 counterNumber[i] = "";
@@ -396,7 +506,7 @@ document.addEventListener("DOMContentLoaded", () => {
             '<tr><td><a class="tabs-content__plus"></a></td><td>' + 
             counterTypeName[i] + '</td><td>' + 
             counterNumber[i] + '</td><td>' + 
-            dateVerify[i] + '</td><td>' + 
+            dateVerifyNew[i][2] + pointVerify[i] + dateVerifyNew[i][1] + pointVerify[i] + dateVerifyNew[i][0] + '</td><td>' + 
             prevData[i] + '</td><td>' + 
             newData[i] + '</td><td>' + 
             ymd[i][2] + point[i] + ymd[i][1] + point[i] + ymd[i][0] + ' ' + hms[i] + '</td><td style="display: none;">' + 
@@ -406,9 +516,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         const countersTableRows = countersTable.getElementsByTagName("tr");
 
-        for (let i = 2; i < countersTableRows.length; i++) {
+        for (let i = 1; i < countersTableRows.length; i++) {
             if (countersTableRows[i].firstElementChild.getAttribute("colspan") !== "7") {
-                countersTableClickableRows[i-2] = countersTableRows[i];
+                countersTableClickableRows[i-1] = countersTableRows[i];
             }
         }
 
@@ -464,7 +574,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             countersTableClickableRows[i].getElementsByTagName("td")[6].innerHTML = '<a href="" class="tabs-content__counters-link-save">Сохранить</a>';
                             countersTableClickableRows[i].getElementsByTagName("td")[6].getElementsByTagName("a")[0].addEventListener("click", (event) => {
                                 event.preventDefault();
-                                let consumption = (isWater[i] == "true") ? 150 : 3000;
+                                let consumption = (isWater[i] == true) ? 150 : 3000;
                                 let newVal, oldVal;
                                 countersTableClickableRows[i].getElementsByTagName("td")[5].getElementsByTagName("input")[0].value = countersTableClickableRows[i].getElementsByTagName("td")[5].getElementsByTagName("input")[0].value.replace(',', '.');
                                 if (countersTableClickableRows[i].getElementsByTagName("td")[5].getElementsByTagName("input")[0].value.replace(' ', '') == '') {
@@ -485,9 +595,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 }
                                 oldVal = parseFloat(prevData[i]);
                                 if (newVal < oldVal && newVal >= 0) {
-                                    consumption = (isWater[i] == "true") ? -10 : -100;
+                                    consumption = (isWater[i] == true) ? -10 : -100;
                                     if (newVal - oldVal < consumption) {
-                                        alert("Внимание!\nЗначение вводимых показаний счетчика сильно меньше предыдущих!\nПоказания останутся неизмененными!");
+                                        alert('Внимание!\nЗначение вводимых показаний счетчика сильно меньше предыдущих!\nПоказания останутся неизмененными!');
                                         countersTableClickableRows[i].getElementsByTagName("td")[5].getElementsByTagName("input")[0].value = oldVal;
                                         countersTableClickableRows[i].getElementsByTagName("td")[5].getElementsByTagName("input")[0].select();
                                         countersTableClickableRows[i].getElementsByTagName("td")[5].getElementsByTagName("input")[0].focus();
@@ -496,7 +606,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     }
                                     newVal = oldVal;
                                 } else if (newVal - oldVal > consumption) {
-                                    alert('Слишком большой расход ('+(_newVal - _oldVal)+')');
+                                    alert('Слишком большой расход ('+(newVal - oldVal)+')');
                                     countersTableClickableRows[i].getElementsByTagName("td")[5].getElementsByTagName("input")[0].select();
                                     countersTableClickableRows[i].getElementsByTagName("td")[5].getElementsByTagName("input")[0].focus();
             
@@ -519,8 +629,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                             let resp = xhr2.response;
                                             let respObj = JSON.parse(resp);
                                             for (let j = 0; j < respObj.rows.length; j++) {
-                                                console.log(respObj.rows[j].id);
-                                                if (respObj.rows[j].id == counterIds[i]) {
+                                                if (respObj.rows[j].id.split("|")[0] == counterIds[i].split("|")[0]) {
                                                     value = respObj.rows[j].cell[4];
                                                     date = respObj.rows[j].cell[5];
                                                     if (date !== "") {
@@ -590,7 +699,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         }
-        document.location.href = "./office.php#counters";
+        //document.location.href = "./office.php#counters";
 
     }
 });
