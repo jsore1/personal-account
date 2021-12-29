@@ -596,7 +596,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     }
                                     newVal = parseFloat(countersTableClickableRows[i].getElementsByTagName("td")[5].getElementsByTagName("input")[0].value);
                                 }
-                                oldVal = parseFloat(prevData[i]);
+                                oldVal = parseFloat(prevData[i].replace(' ', ''));
                                 if (newVal < oldVal && newVal >= 0) {
                                     consumption = (isWater[i] == true) ? -10 : -100;
                                     if (newVal - oldVal < consumption) {
