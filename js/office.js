@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const paymentsTab = document.getElementById("payments");
     const countersTab = document.getElementById("counters");
     const profileTab = document.getElementById("profile");
+    const tableCounters = document.querySelector(".tabs-content__block-table-counters");
     chargesTab.style.display = "none";
     paymentsTab.style.display = "none";
     profileTab.style.display = "none";
@@ -502,13 +503,14 @@ document.addEventListener("DOMContentLoaded", () => {
             if (counterNumber[i] == null) {
                 counterNumber[i] = "";
             }
+            newData[i] = (newData[i] == "") ? "" : parseFloat(newData[i]);
             countersTable.firstElementChild.insertAdjacentHTML("beforeend", 
             '<tr><td><a class="tabs-content__plus"></a></td><td>' + 
             counterTypeName[i] + '</td><td>' + 
             counterNumber[i] + '</td><td>' + 
             dateVerifyNew[i][2] + pointVerify[i] + dateVerifyNew[i][1] + pointVerify[i] + dateVerifyNew[i][0] + '</td><td>' + 
             prevData[i] + '</td><td>' + 
-            parseFloat(newData[i]) + '</td><td>' + 
+            newData[i] + '</td><td>' + 
             ymd[i][2] + point[i] + ymd[i][1] + point[i] + ymd[i][0] + ' ' + hms[i] + '</td><td style="display: none;">' + 
             isWater[i] + '</td><td style="display: none;">' + 
             isEditable[i] + '</td><td style="display: none;">' + 
@@ -572,6 +574,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             countersTableClickableRows[i].getElementsByTagName("td")[5].getElementsByTagName("input")[0].focus();
                             countersTableClickableRows[i].getElementsByTagName("td")[5].getElementsByTagName("input")[0].select();
                             countersTableClickableRows[i].getElementsByTagName("td")[6].innerHTML = '<a href="" class="tabs-content__counters-link-save">Сохранить</a>';
+                            tableCounters.scrollTo(1000,0);
                             countersTableClickableRows[i].getElementsByTagName("td")[6].getElementsByTagName("a")[0].addEventListener("click", (event) => {
                                 event.preventDefault();
                                 let consumption = (isWater[i] == true) ? 150 : 3000;
