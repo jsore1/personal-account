@@ -464,6 +464,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let dateVerifyNew = [];
     let countersTableClickableRows = [];
     let xhrForCounters = new XMLHttpRequest();
+    let isDateVerify = false;
     xhrForCounters.open("POST", "requestCntrData.php");
     xhrForCounters.send();
     xhrForCounters.onload = () => {
@@ -504,11 +505,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 counterNumber[i] = "";
             }
             newData[i] = (newData[i] == "") ? "" : parseFloat(newData[i]);
+            let currentDate = new Date();
+			let redStyle = "";
+			let starText = "";
+            if (parseInt(currentDate.getFullYear()) > parseInt(dateVerifyNew[i][0])) {
+				// Вышла дата поверки счетчика
+				redStyle = 'style="color: #db3535;font-weight: bold;"';
+				starText = "*";
+				document.querySelector(".tabs-content__paragraph").insertAdjacentHTML("afterbegin", "*Вышел срок поверки счетчика: " + counterTypeName[i] + "<br>");
+				isDateVerify = true;
+			} else if ((parseInt(currentDate.getMonth()) + 1) > parseInt(dateVerifyNew[i][1])) {
+				// Вышла дата поверки счетчика
+				redStyle = 'style="color: #db3535;font-weight: bold;"';
+				starText = "*";
+				document.querySelector(".tabs-content__paragraph").insertAdjacentHTML("afterbegin", "*Вышел срок поверки счетчика: " + counterTypeName[i] + "<br>");
+				isDateVerify = true;
+			}
             countersTable.firstElementChild.insertAdjacentHTML("beforeend", 
             '<tr><td><a class="tabs-content__plus"></a></td><td>' + 
             counterTypeName[i] + '</td><td>' + 
-            counterNumber[i] + '</td><td>' + 
-            dateVerifyNew[i][2] + pointVerify[i] + dateVerifyNew[i][1] + pointVerify[i] + dateVerifyNew[i][0] + '</td><td>' + 
+            counterNumber[i] + '</td><td ' + redStyle + '>' + 
+            dateVerifyNew[i][2] + pointVerify[i] + dateVerifyNew[i][1] + pointVerify[i] + dateVerifyNew[i][0] + starText + '</td><td>' + 
             prevData[i] + '</td><td>' + 
             newData[i] + '</td><td>' + 
             ymd[i][2] + point[i] + ymd[i][1] + point[i] + ymd[i][0] + ' ' + hms[i] + '</td><td style="display: none;">' + 
@@ -568,8 +585,14 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
                         let id = counterIds[i];
                         if (id && id !== lastsel) {
-                            let beforeEditVal = (newData[i] != "") ? parseFloat(newData[i]) : -1;
-                            if (!isEditable[i]) return false;
+                            let beforeEditVal = (newData[i] != "") ? newData[i] : -1;
+                            //if (!isEditable[i]) return false;
+                            if (!isEditable[i] && isDateVerify) {
+								alert("Вышел срок поверки счетчика: " + counterTypeName[i]);
+								return false;
+							} else if (!isEditable[i]) {
+								return false;
+							}
                             countersTableClickableRows[i].getElementsByTagName("td")[5].innerHTML = '<input type="text" class="tabs-content__counters-input" name="NewData" value="' + parseFloat(newData[i]) +'">';
                             countersTableClickableRows[i].getElementsByTagName("td")[5].getElementsByTagName("input")[0].focus();
                             countersTableClickableRows[i].getElementsByTagName("td")[5].getElementsByTagName("input")[0].select();
