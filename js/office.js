@@ -514,13 +514,13 @@ document.addEventListener("DOMContentLoaded", () => {
 				starText = "*";
 				document.querySelector(".tabs-content__paragraph").insertAdjacentHTML("afterbegin", "*Вышел срок поверки счетчика: " + counterTypeName[i] + "<br>");
 				isDateVerify = true;
-			} else if ((parseInt(currentDate.getMonth()) + 1) > parseInt(dateVerifyNew[i][1])) {
-				// Вышла дата поверки счетчика
+			} else if ((parseInt(currentDate.getFullYear()) > parseInt(dateVerifyNew[i][0])) && ((parseInt(currentDate.getMonth()) + 1) > parseInt(dateVerifyNew[i][1]))) {
+                // Вышла дата поверки счетчика
 				redStyle = 'style="color: #db3535;font-weight: bold;"';
 				starText = "*";
 				document.querySelector(".tabs-content__paragraph").insertAdjacentHTML("afterbegin", "*Вышел срок поверки счетчика: " + counterTypeName[i] + "<br>");
 				isDateVerify = true;
-			}
+            }
             countersTable.firstElementChild.insertAdjacentHTML("beforeend", 
             '<tr><td><a class="tabs-content__plus"></a></td><td>' + 
             counterTypeName[i] + '</td><td>' + 
